@@ -79,4 +79,15 @@ public class FarmController {
 		
 		return service.generateFarmId();
 	}
+	@GetMapping("/farm-no")
+	
+		public List<Long> getAllFarmIdsByUser()
+		{
+			return service.getAllFarmIdsByUser();
+		}
+	
+
+
+	
+	
 }

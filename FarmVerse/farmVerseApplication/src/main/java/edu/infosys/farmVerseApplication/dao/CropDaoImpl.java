@@ -44,7 +44,7 @@ public class CropDaoImpl implements CropDao {
 		}
 
 		@Override
-		public Long getMaxCropId() {
+		public Integer getMaxCropId() {
 			
 			return repository.getMaxCropId();
 		}

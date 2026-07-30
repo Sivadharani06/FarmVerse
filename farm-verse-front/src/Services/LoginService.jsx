@@ -25,7 +25,7 @@ const USR_URL = 'http://localhost:9696/farmverse/user';
     });
      }
     export const logoutUser=()=>{
-    return axios.post(LOGOUT_URL,{
+    return axios.post(LOGOUT_URL,{},{
         withCredentials: true
     });
     }

@@ -10,7 +10,7 @@ export const addCrop = (crop) => {
 };
 
 export const updateCrop = (crop) => {
-    return axios.put(`${CROP_URL}/${crop.id}`, crop, {
+    return axios.put(CROP_URL, crop, {
         withCredentials: true,
     });
 };

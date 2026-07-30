@@ -10,5 +10,5 @@ public interface CropDao {
 	public Crop getCropById(String id);
 	public List<Crop> getCropsByUsername(String username);
 	public void deleteCropById(String id);
-	public Long getMaxCropId();
+	public Integer getMaxCropId();
 }

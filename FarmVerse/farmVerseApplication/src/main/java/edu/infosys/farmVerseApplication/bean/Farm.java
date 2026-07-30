@@ -9,16 +9,18 @@ public class Farm {
 	  private Long farmId;
 	  private String farmName;
 	  private Double area;
+	  private String soil;
 	  private String username;
 	  public Farm() {
 			super();
 			// TODO Auto-generated constructor stub
 		}
-	public Farm(Long farmId, String farmName, Double area, String username) {
+	public Farm(Long farmId, String farmName, Double area,String soil, String username) {
 		super();
 		this.farmId = farmId;
 		this.farmName = farmName;
 		this.area = area;
+		this.soil=soil;
 		this.username = username;
 	}
 	
@@ -46,6 +48,12 @@ public class Farm {
 	  }
 	  public void setUsername(String username) {
 		  this.username = username;
+	  }
+	  public String getSoil() {
+		  return soil;
+	  }
+	  public void setSoil(String soil) {
+		  this.soil = soil;
 	  }
 
 }

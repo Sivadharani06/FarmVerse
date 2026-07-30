@@ -57,43 +57,36 @@ const LoginPage=()=>{
      navigate('/register');
  }
  
-  return(
-    <div>
-     <div className = ".container">
-       <div className = "row">
-         <div className = "card col-md-2 offset-md-3 offset-md-3">
-           <div className = "login-box">
-             <h2 className="text-center"><u>User Login Page</u></h2>
-              <form>
-                 <div className = "form-group">
-                    <label>User Name: </label>
-                    <input placeholder="username" name="username" className="form-control" value={loginData.username} onChange={onChangeHandler} />
-                      {errors.username && <p style={{ color: "red" }}>{errors.username}</p>}
-                </div>
-                <div className = "form-group">
-                    <label>Password: </label>
-                    <input type="password"   name="password" className="form-control" value={loginData.password} onChange={onChangeHandler}/>
-                    {errors.password && <p style={{ color: "red" }}>{errors.password}</p>}
-                </div>
-                <br/>
-                <button className='btn btn-primary' onClick={handleValidation}>Submit</button>
-             </form>
-             <br/>
-              <div>
-                 {!flag && <p style={{ color: "red" }}>Invalid User Id or Password</p>}
-               </div>
-            <div>
-               <h2 size="5" color='yellow'/>
-               <br/>
-               <button className='btn btn-info' onClick={(e) => registerNewUser(e)}>Register New User</button>
-            </div>
+   return(
+     <div className="container">
+       <div className="login-box">
+         <h2 className="text-center">User Login</h2>
+         <br/>
+         <form>
+            <div className="form-group text-left">
+               <label>User Name: </label>
+               <input placeholder="Enter Username" name="username" className="form-control" value={loginData.username} onChange={onChangeHandler} />
+                 {errors.username && <p style={{ color: "red", fontSize: "0.85rem", marginTop: "4px", textAlign: "left" }}>{errors.username}</p>}
+           </div>
+           <div className="form-group text-left">
+               <label>Password: </label>
+               <input type="password" placeholder="Enter Password" name="password" className="form-control" value={loginData.password} onChange={onChangeHandler}/>
+               {errors.password && <p style={{ color: "red", fontSize: "0.85rem", marginTop: "4px", textAlign: "left" }}>{errors.password}</p>}
+           </div>
+           <br/>
+           <button className='btn btn-primary w-100' onClick={handleValidation}>Submit</button>
+        </form>
+        <br/>
+        <div>
+           {!flag && <p style={{ color: "red", fontWeight: "600" }}>Invalid User Id or Password</p>}
+        </div>
+        <hr />
+        <div>
+           <button className='btn btn-info' onClick={(e) => registerNewUser(e)}>Register New User</button>
         </div>
       </div>
     </div>
-  </div>
- </div>
-        
-    )
+   );
  
 };
 export default LoginPage;

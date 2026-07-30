@@ -49,7 +49,7 @@ const RegisterUser=()=>{
        tempErrors.password = "Password is required";
        isValid = false;
      }
-     else if (farmUser.password.length < 5 || farmUser.passwordlength > 10) {
+     else if (farmUser.password.length < 5 || farmUser.password.length > 10) {
         tempErrors.password="Password must be 5-10 characters long";
        isValid = false;
      }
@@ -86,56 +86,54 @@ const RegisterUser=()=>{
   }
 
  
-  return(
-    <div>
-    <div className = ".container">
-      <div className = "row">
-        <div className = "card col-md-2 offset-md-3 offset-md-3">
-          <div className = "login-box">
-            <h2 className="text-center"><u>New Farmer Registration</u> </h2>
-            <form  method="post">
-              <div className = "form-group">
-                <label>User Name: </label>
-                <input placeholder="username" name="username" className="form-control" value={farmUser.username} onChange={(event) => onChangeHandler(event)} />
-                {errors.username && <p style={{ color: "red" }}>{errors.username}</p>}
-              </div>
-              <div className = "form-group">
-                <label>Password: </label>
-                <input type="password"   name="password" className="form-control" value={farmUser.password} onChange={(event) => onChangeHandler(event)}/>
-                {errors.password && <p style={{ color: "red" }}>{errors.password}</p>}
-              </div>
-              <div className = "form-group">
-                <label>Retype your Password: </label>
-                <input type="password"   name="confirmPassword" className="form-control" value={confirmPassword} onChange={(event) =>setConfirmPassword(event.target.value)}/>
-                {errors.confirmPassword && <p style={{ color: "red" }}>{errors.confirmPassword}</p>}
-              </div>
-              <div className = "form-group">
-                <label>User's Personal Name: </label>
-                <input placeholder="personal name" name="personalName" className="form-control" value={farmUser.personalName} onChange={(event) => onChangeHandler(event)} />
-                {errors.personalName && <p style={{ color: "red" }}>{errors.personalName}</p>}
-              </div>
-              <div className = "form-group">
-                <label>User Email: </label>
-                <input placeholder="email" name="email" className="form-control" value={farmUser.email} onChange={(event) => onChangeHandler(event)} />
-                {errors.email && <p style={{ color: "red" }}>{errors.email}</p>}
-              </div>
-             
-                <br/>
-                <button className='btn btn-primary' onClick={handleValidation}>Submit</button>
-              </form>
-              <br/>
-            <div>
-                 {flag && <p style={{ color: "blue" }}>New User Created...Go For Login:<button className='btn btn-success' onClick={returnBack}>Login</button> </p>}
-            </div>
+   return(
+     <div className="container">
+       <div className="login-box">
+         <h2 className="text-center">Farmer Registration</h2>
+         <br/>
+         <form method="post">
+           <div className="form-group text-left">
+             <label>User Name: </label>
+             <input placeholder="Enter Username" name="username" className="form-control" value={farmUser.username} onChange={(event) => onChangeHandler(event)} />
+             {errors.username && <p style={{ color: "red", fontSize: "0.85rem", marginTop: "4px", textAlign: "left" }}>{errors.username}</p>}
            </div>
-          </div>
-        </div>
+           <div className="form-group text-left">
+             <label>Password: </label>
+             <input type="password" placeholder="Enter Password" name="password" className="form-control" value={farmUser.password} onChange={(event) => onChangeHandler(event)}/>
+             {errors.password && <p style={{ color: "red", fontSize: "0.85rem", marginTop: "4px", textAlign: "left" }}>{errors.password}</p>}
+           </div>
+           <div className="form-group text-left">
+             <label>Confirm Password: </label>
+             <input type="password" placeholder="Retype Password" name="confirmPassword" className="form-control" value={confirmPassword} onChange={(event) =>setConfirmPassword(event.target.value)}/>
+             {errors.confirmPassword && <p style={{ color: "red", fontSize: "0.85rem", marginTop: "4px", textAlign: "left" }}>{errors.confirmPassword}</p>}
+           </div>
+           <div className="form-group text-left">
+             <label>Personal Name: </label>
+             <input placeholder="Enter Personal Name" name="personalName" className="form-control" value={farmUser.personalName} onChange={(event) => onChangeHandler(event)} />
+             {errors.personalName && <p style={{ color: "red", fontSize: "0.85rem", marginTop: "4px", textAlign: "left" }}>{errors.personalName}</p>}
+           </div>
+           <div className="form-group text-left">
+             <label>Email: </label>
+             <input placeholder="Enter Email" name="email" className="form-control" value={farmUser.email} onChange={(event) => onChangeHandler(event)} />
+             {errors.email && <p style={{ color: "red", fontSize: "0.85rem", marginTop: "4px", textAlign: "left" }}>{errors.email}</p>}
+           </div>
+          
+             <br/>
+             <button className='btn btn-primary w-100' onClick={handleValidation}>Register</button>
+         </form>
+         <br/>
+         <div>
+              {flag && (
+                <div className="alert alert-success" style={{ borderRadius: "12px", padding: "12px" }}>
+                  New User Created! <button className='btn btn-success btn-sm ms-2' onClick={returnBack}>Go to Login</button>
+                </div>
+              )}
+         </div>
+         <hr />
+         <button className='btn btn-secondary w-100' onClick={returnBack}>Back to Login</button>
+       </div>
      </div>
-    </div>
- 
-
-
-    );
+   );
  
 };
 export default RegisterUser;

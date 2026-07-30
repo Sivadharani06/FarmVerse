@@ -4,7 +4,10 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import edu.infosys.farmVerseApplication.bean.Crop;
+import edu.infosys.farmVerseApplication.bean.Farm;
+import edu.infosys.farmVerseApplication.bean.FarmCrop;
 import edu.infosys.farmVerseApplication.dao.CropDao;
+import edu.infosys.farmVerseApplication.dao.FarmDao;
 
 @Service
 public class CropService {
@@ -13,11 +16,14 @@ public class CropService {
 	@Autowired
 	private FarmUserService service;
 	
+	@Autowired
+	private FarmDao farmDao;
+	
 	public String generateCropId()
 	{
-		Long value=cropDao.getMaxCropId();
+		Integer value=cropDao.getMaxCropId();
 		if(value==null)
-			value=1000001L;
+			value=500001;
 		else
 			value=value+1;
 		
@@ -30,6 +36,12 @@ public class CropService {
 		crop.setUsername(username);
 		return crop;
 	}
+	public FarmCrop setFarmCrop(Crop crop) {
+		Farm farm=farmDao.getFarmById(crop.getFarmId());
+		return new FarmCrop(farm,crop);
+		
+	}
+ 
 	
 }
 	

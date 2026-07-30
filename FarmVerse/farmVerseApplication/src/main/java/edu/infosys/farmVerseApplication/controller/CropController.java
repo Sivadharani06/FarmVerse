@@ -40,7 +40,7 @@ public class CropController {
 	}
 	
 	@PutMapping("/crop")
-	public void updateCrop(Crop crop) {
+	public void updateCrop(@RequestBody Crop crop) {
 	  cropDao.addCrop(crop);
 	}
  
